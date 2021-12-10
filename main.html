@@ -8,7 +8,7 @@
   </head>
   <body>
     <header class='container head'>
-    <h1>Javascrip Calculator</h1>
+    <h1>Javascript Calculator</h1>
     <br>
     </header>
 
@@ -66,16 +66,16 @@
                 </div>
 
                 <div class="container buttons right">
-                    <span class="btn operator" id="/" onClick="setOperator(this.id)">
+                    <span class="btn operator" id="/" onClick="setOperator('÷')">
                         ÷ 
                     </span>
-                    <span class="btn operator" id="*" onClick="setOperator(this.id)">
+                    <span class="btn operator" id="*" onClick="setOperator('×')">
                         ×
                     </span>
-                    <span class="btn operator" id="-" onClick="setOperator(this.id)">
+                    <span class="btn operator" id="-" onClick="setOperator('−')">
                         −
                     </span>
-                    <span class="btn operator" id="+" onClick="setOperator(this.id)">
+                    <span class="btn operator" id="+" onClick="setOperator('+')">
                         +
                     </span>
                 </div>
@@ -87,6 +87,11 @@
     </main>
 
     <footer>
+
+        <span class="btn debugging" onClick="debugToggle()">
+            Debug
+        </span>
+
         <span id="calculation">
         </span>
 
