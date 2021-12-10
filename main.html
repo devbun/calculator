@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Javascript Calculator</title>
+    <link rel='stylesheet' href='styles.css'/>
+    <script src="calc.js" defer></script>
+  </head>
+  <body>
+    <header class='container head'>
+    <h1>Javascrip Calculator</h1>
+    <br>
+    </header>
+
+    <main>
+
+        <div class="container calculator">
+            <div class="container upper">
+                <span class="btn clear" id="clear" onClick="clearDisplay()">
+                    C
+                </span>
+                <div class="container outer-screen">
+                    <span class="container screen" id="display">
+                        0
+                    </span>
+                </div>
+            </div>
+            <div class="container lower">
+                <div class="container buttons left">
+                    <span class="btn number" id="seven" onClick="number(this.textContent.trim());">
+                        7
+                    </span>
+                    <span class="btn number" id="eight" onClick="number(this.textContent.trim());">
+                        8
+                    </span>
+                    <span class="btn number" id="nine" onClick="number(this.textContent.trim());">
+                        9
+                    </span>
+                    <span class="btn number" id="four" onClick="number(this.textContent.trim());">
+                        4
+                    </span>
+                    <span class="btn number" id="five" onClick="number(this.textContent.trim());">
+                        5
+                    </span>
+                    <span class="btn number" id="six" onClick="number(this.textContent.trim());">
+                        6
+                    </span>
+                    <span class="btn number" id="one" onClick="number(this.textContent.trim());">
+                        1
+                    </span>
+                    <span class="btn number" id="two" onClick="number(this.textContent.trim());">
+                        2
+                    </span>
+                    <span class="btn number" id="three" onClick="number(this.textContent.trim());">
+                        3
+                    </span>
+                    <span class="btn number" id="zero" onClick="number(this.textContent.trim());">
+                        0
+                    </span>
+                    <span class="btn number" id="point" onClick="point()">
+                        .
+                    </span>
+                    <span class="btn operator" id="equals" onClick="equals()">
+                        =
+                    </span>
+                </div>
+
+                <div class="container buttons right">
+                    <span class="btn operator" id="/" onClick="setOperator(this.id)">
+                        ÷ 
+                    </span>
+                    <span class="btn operator" id="*" onClick="setOperator(this.id)">
+                        ×
+                    </span>
+                    <span class="btn operator" id="-" onClick="setOperator(this.id)">
+                        −
+                    </span>
+                    <span class="btn operator" id="+" onClick="setOperator(this.id)">
+                        +
+                    </span>
+                </div>
+                
+            </div>
+        </div>
+
+
+    </main>
+
+    <footer>
+        <p>Debugging</p>
+        <span id="calculation">
+        </span>
+
+        <span id="num1">
+        </span>
+
+        <span id="num2">
+        </span>
+
+        <span id="operator">
+        </span>
+
+        <span id="whichNum">
+        </span>
+
+        <span id="result">
+        </span>
+    </footer>
+
+  </body>
+</html>
