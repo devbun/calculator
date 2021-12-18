@@ -1,4 +1,10 @@
 
+// TODO
+// +/- button
+// Fix display
+//on button press effect
+
+
 const display = document.getElementById('display');
 var result = undefined
 var num1 = ''
@@ -16,7 +22,7 @@ function clearDisplay() {
 }
 
 function setOperator(op) {
-    if (operator !== '') {
+    if (operator !== '' && num2 != '') {
         equals()
     }
 
@@ -54,7 +60,10 @@ function point() {
     } else {
         if (String(num2).split().includes('.')) {            
             } else {
-            num2 += '' + '.' 
+                if (num2 == '') {
+                    num2 = 0
+                }
+                num2 += '' + '.' 
             }
     }
     updateDisplay()
@@ -62,31 +71,44 @@ function point() {
 }
 
 function equals() {
-    if (operator == '+') {
-        result = parseFloat(num1) + parseFloat(num2)
-        clearDisplay()
-        num1 = result
-    } else if (operator == '−') {
-        result = parseFloat(num1) - parseFloat(num2)
-        clearDisplay()
-        num1 = result
-    } else if (operator == '×') {
-        result = parseFloat(num1) * parseFloat(num2)
-        clearDisplay()
-        num1 = result
-    } else if (operator == '÷') {
-        result = parseFloat(num1) / parseFloat(num2)
-        clearDisplay()
-        num1 = result
+    if (num2 != ''){
+        if (operator == '+') {
+            result = parseFloat(num1) + parseFloat(num2)
+            clearDisplay()
+            num1 = result
+        } else if (operator == '−') {
+            result = parseFloat(num1) - parseFloat(num2)
+            clearDisplay()
+            num1 = result
+        } else if (operator == '-') {
+            result = parseFloat(num1) - parseFloat(num2)
+            clearDisplay()
+            num1 = result
+        } else if (operator == '×') {
+            result = parseFloat(num1) * parseFloat(num2)
+            clearDisplay()
+            num1 = result
+        } else if (operator == '*') {
+            result = parseFloat(num1) * parseFloat(num2)
+            clearDisplay()
+            num1 = result
+        } else if (operator == '÷') {
+            result = parseFloat(num1) / parseFloat(num2)
+            clearDisplay()
+            num1 = result
+        } else if (operator == '/') {
+            result = parseFloat(num1) / parseFloat(num2)
+            clearDisplay()
+            num1 = result
+        }
     }
-
-
 
     updateDisplay()
 }
 
 function updateDisplay() {
-    // fix too many digits
+    // Make always show at least two digits if there is least two 
+    // fix number overflow
     display.innerHTML = Math.round(parseFloat(num1) * 100) / 100 + operator
     if (whichNum == 'num2' && num2 != '') {
         display.innerHTML += Math.round(parseFloat(num2) * 100) / 100
@@ -110,6 +132,8 @@ function updateDisplay() {
     }
 }
 
+
+
 function debugToggle() {
     if (debugging == true) {
         debugging = false
@@ -120,4 +144,29 @@ function debugToggle() {
     updateDisplay()
 }
 
-number('0')
+document.addEventListener('keypress', (event) => {
+    var name = event.key;
+    console.log(name)
+
+    if (['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'].includes(name)) {
+        number(name)
+    }
+
+    if (['/', '*', '-', '+'].includes(name)) {
+        setOperator(name)
+    }
+
+    if (name == '.') {
+        point()
+    }
+
+    if (name == 'Enter') {
+        equals()
+    }
+
+  }, false);
+
+
+
+
+clearDisplay()

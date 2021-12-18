@@ -113,6 +113,7 @@
 
 footer {
   font-size: 20px;
+  padding: 40px;
   height: 300px;
   display: flex;
   flex-direction: column;
@@ -121,4 +122,7 @@ footer {
 
 .debugging {
   font-size: 20px;
+  background-color: white;
+  color:white;
+  box-shadow: 0px 4px white;
 }
